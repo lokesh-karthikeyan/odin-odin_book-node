@@ -4,7 +4,8 @@
   "type": "module",
   "private": true,
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "drizzle-kit": "^0.31.9"
   },
   "peerDependencies": {
     "typescript": "^5"
@@ -13,6 +14,8 @@
     "@fastify/cookie": "^11.0.2",
     "@fastify/env": "^5.0.3",
     "@fastify/jwt": "^10.0.0",
-    "fastify": "^5.7.4"
+    "drizzle-orm": "^0.45.1",
+    "fastify": "^5.7.4",
+    "pg": "^8.18.0"
   }
 }
