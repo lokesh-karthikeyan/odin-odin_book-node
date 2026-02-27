@@ -2,11 +2,7 @@ import { jwtVerify } from "jose";
 import { JWT_SECRET } from "$env/static/private";
 
 async function handle ({ event, resolve }) {
-    console.log('--- HOOK TRIGGERED ---');
-    console.log('URL:', event.url.pathname);
-
   const token = event.cookies.get('token');
-    console.log('Token Cookie:', token ? 'Found' : 'Missing');
 
   if (token) {
     try {
