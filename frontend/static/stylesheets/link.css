@@ -1,0 +1,24 @@
+.link {
+  color: var(--color-deep-ocean);
+  font-weight: var(--weight-medium);
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+  cursor: pointer;
+  position: relative;
+}
+
+.link:hover {
+  color: var(--color-crimson);
+  text-decoration: underline;
+  text-decoration-color: var(--color-gold);
+  text-underline-offset: 4px;
+}
+
+.link:active {
+  color: var(--color-eggplant);
+}
+
+.link-sm {
+  font-size: var(--text-xs);
+  color: var(--color-slate);
+}
