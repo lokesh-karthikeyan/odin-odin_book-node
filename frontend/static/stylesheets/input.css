@@ -1,0 +1,14 @@
+input {
+  background-color: var(--color-cream);
+  border: 1px solid var(--color-gold);
+  color: var(--color-deep-ocean);
+  padding: 0.7em;
+}
+
+input.input-error {
+  border-color: var(--color-crimson);
+}
+
+.error-message {
+  color: var(--color-crimson);
+}
