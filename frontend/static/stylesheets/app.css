@@ -1,0 +1,55 @@
+@import 'normalize.css';
+@import 'button.css';
+@import 'input.css';
+@import 'link.css';
+
+:root {
+  --color-sand: #dbdad6;
+  --color-cream: #f7de8e;
+
+  --color-gold: #d3ad5c;
+  --color-terracotta: #bc5d4b;
+  --color-crimson: #a62d40;
+  --color-leather: #bc7d54;
+
+  --color-forest: #005538;
+  --color-deep-ocean: #0d3b6f;
+
+  --color-sunflower: #f0de00;
+  --color-slate: #364a55;
+  --color-eggplant: #543844;
+
+  --bg-primary: var(--color-sand);
+  --text-primary: var(--color-deep-ocean);
+  --btn-primary: var(--color-terracotta);
+  --btn-hover: var(--color-crimson);
+
+  --text-sm: 0.875rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 1.875rem;
+  --text-3xl: 2.25rem;
+
+  --system-ui: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('../fonts/Raleway-Regular.woff2') format('woff2'),
+    url('../fonts/Raleway-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Raleway', var(--system-ui);
+  max-width: 1200px;
+  margin: 0 auto;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 1.1rem;
+}
