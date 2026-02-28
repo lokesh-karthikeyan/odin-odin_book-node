@@ -1,23 +1,34 @@
 import fp from 'fastify-plugin';
 
 async function responsePlugin(fastify) {
-  fastify.decorateReply('success', function (message, data = null, statusCode = 200) {
-    this.code(statusCode).send({
+  fastify.decorateReply('success', function (messageOrData = null, dataMaybe = null, statusCode = 200) {
+    let message;
+    let data;
+
+    if (typeof messageOrData === 'object' && !Array.isArray(messageOrData) && messageOrData !== null) {
+      message = undefined;
+      data = messageOrData;
+    } else {
+      message = messageOrData;
+      data = dataMaybe;
+    }
+
+    const payload = {
       success: true,
-      message,
+      ...(message && { message }),
       ...(data && { data }),
-    });
+    };
+
+    this.code(statusCode).send(payload);
   });
 
   fastify.setErrorHandler((error, request, reply) => {
     if (error.validation) {
       const formatted = {};
-
       for (const err of error.validation) {
         const field = err.instancePath.replace('/', '') || err.params.missingProperty;
         formatted[field] = err.message;
       }
-
       return reply.code(400).send({
         success: false,
         message: 'Validation failed',
@@ -29,8 +40,8 @@ async function responsePlugin(fastify) {
       return reply.code(error.statusCode).send({
         success: false,
         message: error.message,
-        ...(error.errors && { errors: error.errors })
-      })
+        ...(error.errors && { errors: error.errors }),
+      });
     }
 
     request.log.error(error);
@@ -38,7 +49,7 @@ async function responsePlugin(fastify) {
     return reply.code(500).send({
       success: false,
       message: 'Internal Server Error',
-    })
+    });
   });
 }
 
