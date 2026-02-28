@@ -7,7 +7,8 @@ async function load ({ locals, url }) {
   const publicRoutes = ["/login", "/register"];
   const isPublic     = publicRoutes.includes(path);
 
-  if (user && isPublic) throw redirect(303, '/');
+  if (path === '/') throw redirect(303, '/home');
+  if (user && isPublic) throw redirect(303, '/home');
   if (!user && !isPublic) throw redirect(303, '/login');
 
   return { user };
