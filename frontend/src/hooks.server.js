@@ -14,13 +14,16 @@ async function handle ({ event, resolve }) {
         email: payload.email,
         fullName: payload.fullName
       }
+      event.locals.token = token;
     } catch (err) {
       console.error("JWT Verification failed:", err.message);
       event.cookies.delete('token', { path: '/' });
       event.locals.user = null;
+      event.locals.token = null;
     }
   } else {
     event.locals.user = null;
+    event.locals.token = null;
   }
 
   return resolve(event);
