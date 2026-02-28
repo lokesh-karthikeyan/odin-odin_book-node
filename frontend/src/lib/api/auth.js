@@ -17,7 +17,7 @@ async function login({ email, password }) {
 }
 
 async function register({ fullName, email, password }) {
-  return request("register", { fullName, email, password });
+  return request("signup", { fullName, email, password });
 }
 
 export {
