@@ -9,7 +9,7 @@
     { name: 'Home', href: '/home', icon: Home },
     { name: 'People', href: '/people', icon: Users },
     { name: 'Chat', href: '/conversations', icon: MessageSquare },
-    { name: 'Profile', href: '/profile', icon: UserCircle },
+    { name: 'Profile', href: '/me', icon: UserCircle },
   ];
 </script>
 
