@@ -25,7 +25,34 @@ async function followUser(fetch, token, followeeId) {
   return res.json();
 }
 
+async function getConnections(fetch, token, userId, type) {
+  const res = await fetch(`${BASE_URL}/users/${userId}/${type}`, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  });
+
+  return res.json();
+}
+
+async function unfollowUser(fetch, token, userId) {
+  const reqData = {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ followeeId: userId }),
+  }
+
+  const res = await fetch(`${BASE_URL}/follows`, reqData);
+
+  return res.json();
+}
+
 export const peopleApi = {
   getSuggestedUsers,
   followUser,
+  unfollowUser,
+  getConnections,
 }
