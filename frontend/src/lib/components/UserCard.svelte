@@ -1,13 +1,14 @@
 <script>
+  import { getAvatarUrl } from '$lib/utils';
   let { user, children } = $props();
 
-  const avatarUrl = $derived(`https://ui-avatars.com/api/?name=${encodeURIComponent(user.fullName)}&background=random&color=random`);
+  const avatarUrl = $derived(getAvatarUrl(user));
 </script>
 
 <div class='user-card'>
   <div class="user-info">
     <a href="/profile/{user.id}" class="profile-link">
-      <img src={user.picture || avatarUrl} alt={user.fullName} class="avatar" />
+      <img src={avatarUrl} alt={user.fullName} class="avatar" />
     </a>
     <header class="details">
       <a href="/profile/{user.id}" class="name-link">
@@ -48,7 +49,7 @@
     height: 44px;
     border-radius: 0.5em;
     border: 1px solid var(--color-gold);
-    object-fit: cover;
+    object-fit: contain;
     transition: opacity 0.2s;
 
     &:hover {

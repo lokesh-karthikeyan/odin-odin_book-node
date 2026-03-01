@@ -9,6 +9,7 @@ export async function load({ params, locals, fetch }) {
   );
 
   return {
-    users: result.followers ?? []
+    users: result.data.followers ?? [],
+    token: locals.token,
   };
 }
