@@ -1,8 +1,6 @@
 import { PUBLIC_API_URL } from '$env/static/public';
 
 export function getAvatarUrl({ picture, fullName } = {}) {
-  console.log(picture)
-  console.log(fullName)
   if (picture) {
     if (picture.startsWith('http')) return picture;
     return `${PUBLIC_API_URL}${picture}`;
