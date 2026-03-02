@@ -16,8 +16,6 @@
   const isOwnProfile = $derived(user?.id === profile.id);
   const avatarUrl = $derived(getAvatarUrl(profile));
 
-  console.log(profile)
-
   let isFollowing = $state(profile?.isFollowing ?? false);
   let isFollowLoading = $state(false);
 
@@ -223,10 +221,6 @@
     width: 100%;
     text-decoration: underline;
   }
-
-  /* ========================= */
-  /* Popover Modal Styles */
-  /* ========================= */
 
   .popover-modal {
     border: none;
