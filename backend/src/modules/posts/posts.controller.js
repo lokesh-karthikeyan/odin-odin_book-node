@@ -49,7 +49,7 @@ export const postsController = (service) => ({
   },
 
   feed: async (request, reply) => {
-    const userId = request.params.userId || request.user.id;
+    const userId = request.query.userId || request.user.id;
     const posts = await service.getFeed(userId);
     const data = { posts };
     return reply.success(data);
