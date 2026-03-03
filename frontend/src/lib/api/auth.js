@@ -20,7 +20,27 @@ async function register({ fullName, email, password }) {
   return request("signup", { fullName, email, password });
 }
 
+async function logout(token) {
+  const res = await fetch(`${BASE_URL}/logout`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${token}`
+    },
+    body: JSON.stringify({}),
+    credentials: "include"
+  });
+
+  if (!res.ok) {
+    const error = await res.json();
+    throw error;
+  }
+
+  return res.json();
+}
+
 export {
   login,
   register,
+  logout,
 }
