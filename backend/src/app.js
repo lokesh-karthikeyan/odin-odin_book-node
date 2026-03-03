@@ -6,6 +6,9 @@ import authPlugin from './core/plugins/auth.js';
 import dbPlugin from './core/plugins/db.js';
 import responsePlugin from './core/plugins/response.js';
 import corsPlugin from './core/plugins/cors.js';
+import multipartPlugin from './core/plugins/multipart.js';
+import staticPlugin from './core/plugins/static.js';
+import websocketPlugin from './core/plugins/websocket.js';
 
 import registerModules from './modules/index.js';
 
@@ -18,6 +21,9 @@ async function buildApp() {
   await app.register(dbPlugin);
   await app.register(responsePlugin);
   await app.register(corsPlugin);
+  await app.register(multipartPlugin);
+  await app.register(staticPlugin);
+  await app.register(websocketPlugin);
 
   await app.register(registerModules);
 
