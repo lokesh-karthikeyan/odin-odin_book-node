@@ -4,6 +4,8 @@
   import { profileApi, peopleApi } from '$lib/api';
   import { invalidateAll } from '$app/navigation';
   import { getAvatarUrl } from '$lib/utils';
+  import { LogOut } from 'lucide-svelte';
+  import { enhance } from '$app/forms';
 
   let { profile, user, token } = $props();
 
@@ -117,6 +119,12 @@
       <ProfileStats userId={profile.id} counts={profile.counts} />
     </div>
   </header>
+
+  <form action="?/logout" method="POST" use:enhance class='logout-form'>
+    <button type='submit' class='logout-btn'>
+      <LogOut size={20} />
+    </button>
+  </form>
 </div>
 
 <div
@@ -262,5 +270,16 @@
 
   .submit:not(.following) {
     background: color-mix(in srgb, var(--color-forest), white 20%);
+  }
+
+  .profile-container {
+    anchor-name: --profile;
+  }
+
+  .logout-form {
+    position: absolute;
+    position-anchor: --profile;
+    bottom: calc(anchor(bottom) + 1em);
+    right: calc(anchor(right) + 1.5em);
   }
 </style>

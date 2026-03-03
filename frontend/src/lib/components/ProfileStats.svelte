@@ -27,7 +27,7 @@
     padding-top: 1rem;
 
     @media (max-width: 768px) {
-      justify-content: center;
+      justify-content: start;
     }
   }
 
