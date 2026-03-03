@@ -19,3 +19,10 @@ Echo is a full-stack social media platform designed for real-time interaction an
 - **Backend:** SvelteKit
 - **Database:** PostgreSQL, Drizzle ORM
 - **Auth:** JSON Web Tokens (JWT)
+
+## Demo
+
+
+
+https://github.com/user-attachments/assets/5cb438c8-eb01-4b55-a2e5-ab4fb9af4c30
+
