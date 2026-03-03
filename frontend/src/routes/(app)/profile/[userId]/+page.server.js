@@ -15,5 +15,6 @@ export async function load({ params, fetch, parent }) {
   return {
     profile: profileRes.data.profile,
     posts: postsRes.data.posts || [],
+    token
   };
 }

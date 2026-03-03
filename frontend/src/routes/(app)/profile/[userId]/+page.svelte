@@ -4,7 +4,7 @@
   let { data } = $props();
 </script>
 
-<ProfileView profile={data.profile} user={data.user}>
+<ProfileView profile={data.profile} user={data.user} token={data.token}>
 </ProfileView>
 
 <PostList posts={data.posts} token={data.token} />

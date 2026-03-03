@@ -26,6 +26,7 @@
 
     try {
       isFollowLoading = true;
+      console.log(token)
 
       if (isFollowing) {
         await peopleApi.unfollowUser(fetch, token, profile.id);
