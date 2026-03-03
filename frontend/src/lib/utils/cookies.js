@@ -7,3 +7,7 @@ export function setTokenCookie(cookies, token) {
     maxAge: 60 * 60 * 24,
   });
 }
+
+export const removeTokenCookie = (cookies) => {
+  cookies.delete('token', { path: '/' });
+};
